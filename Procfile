@@ -1,0 +1,1 @@
+worker: python codigo_request.py

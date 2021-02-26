@@ -11,12 +11,12 @@ class GistMan:
             'Content-Type': 'application/json'
         })
 
-    def read(self, file_id: str):
-        return self.req.get(f'{self.access_url}/{file_id}').json()
-
     def create(self, file_name: str, content='place holder', public='false'):
         data = {'public': public, 'files': {file_name: {'content': content}}}
         return self.req.post(self.access_url, data=json.dumps(data)).json()
+
+    def read(self, file_id: str):
+        return self.req.get(f'{self.access_url}/{file_id}').json()
 
     def update(self, file_id: str, file_name: str, content: str):
         data = {'files': {file_name: {'content': content}}}
