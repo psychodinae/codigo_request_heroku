@@ -48,7 +48,7 @@ def codigo_request():
     for pedido in pedidos:
         texto, nick, post_id = pedido
         gist.update(CONF_FILE_ID, 'cod_rec.data', post_id)
-        if pedido[0] in ['codigo request', 'código request']:
+        if texto in ['codigo request', 'código request']:
             print(f'enviando para o user {nick}')
             ign.msg_privada('tá ná mão meu consagrado', MENSAGEM, nick, )
             sleep(TEMPO)
