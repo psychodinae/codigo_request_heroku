@@ -1,6 +1,7 @@
 import json
-from time import sleep
 from os import environ
+from time import sleep
+
 from igninterage import Igninterage
 from lxml.html import fromstring
 
@@ -54,22 +55,22 @@ def codigo_request():
             return True
 
 
+def printa_seus_cookies_de_login():
+    ignc = Igninterage('https://www.ignboards.com/', navegador='chrome')
+    ignc.ign_login()
+    print(json.dumps(ign.interact_session.cookies.get_dict()))
+
+
+def cria_arquivo_de_configuracao(gist_token):
+    print(GistMan(gist_token).create('cod_rec.data', '0')["id"])
+
+
 def main():
     if __name__ == '__main__':
         while True:
             print('rodando...')
             if not codigo_request():
                 sleep(TEMPO)
-
-
-def printa_seus_cookies_de_login():
-    ign = Igninterage('https://www.ignboards.com/', navegador='chrome')
-    ign.ign_login()
-    print(json.dumps(ign.interact_session.cookies.get_dict()))
-
-
-def cria_arquivo_de_configuracao(gist_token):
-    print(GistMan(gist_token).create('cod_rec.data', '0')["id"])
 
 
 if __name__ == '__main__':
