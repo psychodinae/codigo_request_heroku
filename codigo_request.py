@@ -18,7 +18,7 @@ GIST_TOKEN = environ['GIST_TOKEN']
 CONF_FILE_ID = environ['CONF_FILE_ID']
 TEMPO = 30
 
-ign = Igninterage(URL, navegador='chrome')
+ign = Igninterage(URL)
 ign.set_cookie(json.loads(FORUM_COOKIE))
 gist = GistMan(GIST_TOKEN)
 
@@ -55,16 +55,6 @@ def codigo_request():
             return True
 
 
-def printa_seus_cookies_de_login():
-    ignc = Igninterage('https://www.ignboards.com/', navegador='chrome')
-    ignc.ign_login()
-    print(json.dumps(ign.interact_session.cookies.get_dict()))
-
-
-def cria_arquivo_de_configuracao(gist_token):
-    print(GistMan(gist_token).create('cod_rec.data', '0')["id"])
-
-
 def main():
     if __name__ == '__main__':
         while True:
@@ -74,6 +64,4 @@ def main():
 
 
 if __name__ == '__main__':
-    # printa_seus_cookies_de_login()
-    # cria_arquivo_de_configuracao()
     main()
